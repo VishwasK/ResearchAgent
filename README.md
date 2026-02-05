@@ -5,6 +5,7 @@ A deployable research assistant built with the OpenAI Agents SDK and Flask.
 ## What this app does
 
 - Exposes a simple HTTP API for research tasks.
+- Includes a browser-based UI at `/` for entering a question and viewing the answer.
 - Uses the OpenAI Agents SDK to run a `ResearchAgent` with web search.
 - Ready for deployment to Heroku.
 
@@ -38,7 +39,13 @@ Run locally:
 python app.py
 ```
 
-Test request:
+Open the local UI in your browser:
+
+```
+http://127.0.0.1:5000/
+```
+
+Test API request:
 
 ```bash
 curl -X POST http://127.0.0.1:5000/research \
@@ -64,6 +71,9 @@ git push heroku main
 The `Procfile` runs Gunicorn with `app:app`.
 
 ## API
+
+### `GET /`
+Returns the HTML UI page for interactive research.
 
 ### `GET /health`
 Returns service health.
