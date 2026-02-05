@@ -2,13 +2,18 @@ import asyncio
 import os
 
 from dotenv import load_dotenv
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, render_template, request
 
 from research_agent import run_research
 
 load_dotenv()
 
 app = Flask(__name__)
+
+
+@app.get("/")
+def index() -> str:
+    return render_template("index.html")
 
 
 @app.get("/health")
